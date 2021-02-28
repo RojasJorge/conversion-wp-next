@@ -44,6 +44,7 @@ const Apartments = (_) => {
                 onClick={(_) => showSingleContent(apartment)} 
                 className={(current?.id === apartment?.id) ? 'bg-secondary text-primary py-4 px-6 text-uppercase' : 'py-4 px-6 text-primary text-uppercase'}
                 >
+                  <span></span>
                 {apartment.title.rendered}
               </h4>
             </div>
