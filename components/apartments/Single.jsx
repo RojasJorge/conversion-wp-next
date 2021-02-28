@@ -29,7 +29,8 @@ const SingleApartment = ({ apartment }) => {
           />
         </div>
         <div className="row-span-2 col-span-2">
-          <img src={thumbnail?.guid?.rendered} alt="" />
+
+          <img src={thumbnail?.guid?.rendered} />
         </div>
       </div>
     </>
