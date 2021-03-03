@@ -20,7 +20,7 @@ const HomeHeader = ({ headerTitle, data }) => {
         style={{
           backgroundImage: `url(${featured?.media_details?.sizes?.landing_header?.source_url})`,
         }}
-        className={`bg-black py-24 md:h-screen h-auto bg-center bg-no-repeat bg-fixed md:bg-cover flex justify-center content-center`}
+        className={`bg-black py-24 md:h-screen h-auto bg-top md:bg-center bg-no-repeat bg-fixed md:bg-cover flex justify-center content-center`}
       >
         <div
           className="tems-center justify-center text-center md:pt-60"
