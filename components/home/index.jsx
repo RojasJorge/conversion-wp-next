@@ -6,6 +6,7 @@ import Apartments from "../apartments/index";
 import Contact from "../home/Contact";
 import LuxurySlider from "../home/LuxurySlider";
 import Location from "../home/Location";
+import Finishes from "../home/Finishes";
 
 const HomePage = (data) => {
   return (
@@ -18,6 +19,7 @@ const HomePage = (data) => {
       <Contact data={data} />
       <LuxurySlider data={data} />
       <Location data={data} />
+      <Finishes data={data} />
     </>
   );
 };
