@@ -48,7 +48,7 @@ const Navbar = () => {
       >
         <ul className="grid w-full grid-cols-2 md:grid-cols-none md:grid-flow-col">
           <li
-            className="p-4 w-full heading-none cursor-pointer border-l border-b md:border-l-none border-secondary"
+            className="p-4 w-full heading-none cursor-pointer border-b md:border-l-none border-secondary"
             onClick={(_) => goTo("apartments")}
           >
             Apartamentos
