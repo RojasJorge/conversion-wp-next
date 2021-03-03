@@ -44,7 +44,7 @@ const Navbar = () => {
       <div
         className={`${
           visible ? "block" : "hidden"
-        } bg-gray-600 w-full bg-opacity-70 text-secondary shadow-2 shadow-sm flex md:text-center`}
+        } bg-gray-600 w-full bg-opacity-70 text-secondary shadow-2 shadow-sm flex text-center`}
       >
         <ul className="grid w-full grid-cols-2 md:grid-cols-none md:grid-flow-col">
           <li
@@ -72,7 +72,7 @@ const Navbar = () => {
             Ubicación
           </li>
           <li
-            className="p-4 w-full text-center heading-none w-screen md:w-auto cursor-pointer border-l border-b md:border-l-none border-secondary"
+            className="p-4 w-full heading-none w-screen md:w-auto cursor-pointer border-l border-b md:border-l-none border-secondary"
             onClick={(_) => goTo("finishes")}
           >
             Acabados
