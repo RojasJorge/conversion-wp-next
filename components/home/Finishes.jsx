@@ -41,8 +41,8 @@ const Finishes = (_) => {
 
                   return (
                     <div key={id}>
-                      <div className="bg-gray-700 min-h-52">
-                        <img src={featured[0]?.media_details?.sizes?.landing_finishes?.source_url} />
+                      <div className="min-h-52">
+                        <img className="w-full" src={featured[0]?.media_details?.sizes?.landing_finishes?.source_url} />
                       </div>
                       <h3 className="text-secondary my-4 text-uppercase text-base">
                         {title.rendered}
