@@ -5,7 +5,7 @@ const TextBanner = (data) => {
 
   return (
     <>
-      <div className="p-8 md:p-12 bg-third">
+      <div id="apartments" className="p-8 md:p-12 bg-third">
         <div
           className="tems-center justify-center text-center"
           dangerouslySetInnerHTML={createMarkup(

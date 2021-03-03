@@ -44,19 +44,37 @@ const Navbar = () => {
       <ul
         className={`${
           visible ? "block" : "hidden"
-        } bg-gray-600 w-full bg-opacity-70 text-secondary shadow-2 shadow-sm flex`}
+        } bg-gray-600 w-full bg-opacity-70 text-secondary shadow-2 shadow-sm flex text-center`}
       >
         <li
-          className="p-4 w-full heading-none"
+          className="p-4 w-full heading-none cursor-pointer"
+          onClick={(_) => goTo("apartments")}
+        >
+          Apartamentos
+        </li>
+        <li
+          className="p-4 w-full heading-none cursor-pointer"
           onClick={(_) => goTo("contact")}
         >
           Contacto
         </li>
         <li
-          className="p-4 w-full heading-none"
+          className="p-4 w-full heading-none cursor-pointer"
+          onClick={(_) => goTo("amenities")}
+        >
+          Amenidades
+        </li>
+        <li
+          className="p-4 w-full heading-none cursor-pointer"
           onClick={(_) => goTo("location")}
         >
           Ubicación
+        </li>
+        <li
+          className="p-4 w-full heading-none cursor-pointer"
+          onClick={(_) => goTo("finishes")}
+        >
+          Acabados
         </li>
       </ul>
     </header>

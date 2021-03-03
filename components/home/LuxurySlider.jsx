@@ -27,7 +27,7 @@ const LuxurySlider = (_) => {
   };
 
   return (
-    <div className="flex bg-black md:py-24 bg-luxury-slider luxury-slider h-auto items-center">
+    <div id="amenities" className="flex bg-black md:py-24 bg-luxury-slider luxury-slider h-auto items-center">
       <div className="container mx-auto">
         <div className="w-full text-center p-4">
           <p className="text-secondary text-white text-xs text-uppercase p-4">
