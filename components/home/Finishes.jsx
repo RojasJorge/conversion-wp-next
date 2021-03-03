@@ -17,7 +17,7 @@ const Finishes = (_) => {
   }, []);
 
   return (
-    <div className="finishes bg-primary py-24 px-4 md:py-24" id="finishes">
+    <div className="finishes bg-primary bg-fixed py-24 px-4 md:py-24" id="finishes">
       <div className="flex md:py-24 h-auto items-center">
         <div className="container mx-auto">
           <div className="w-full text-center p-4">

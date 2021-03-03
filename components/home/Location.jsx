@@ -4,7 +4,7 @@ const Location = ({ data }) => {
   };
 
   return (
-    <div id="location" className="location py-24 px-4">
+    <div id="location" className="location bg-fixed bg-repeat py-24 px-4">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>

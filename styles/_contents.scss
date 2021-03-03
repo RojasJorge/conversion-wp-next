@@ -127,7 +127,7 @@ p {
 }
 
 .location {
-  background: transparent url('/monad-texture.png') repeat left top;
+  background-image: url('/monad-texture.png');
 
   strong {
     font-weight: bold;
