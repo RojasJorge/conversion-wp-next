@@ -22,7 +22,7 @@ Home.getInitialProps = async () => {
     })
     .catch();
 
-    return response
+  return response
 }
 
 export default Home

@@ -19,13 +19,8 @@ const HomeHeader = ({ headerTitle, data }) => {
       <div
         style={{
           backgroundImage: `url(${featured?.media_details?.sizes?.landing_header?.source_url})`,
-          minHeight: featured
-            ? featured.media_details.sizes?.landing_header?.height
-            : 670,
-          backgroundPosition: "center center",
-          backgroundSize: "cover",
         }}
-        className={`bg-black flex justify-center content-center`}
+        className={`bg-black py-24 md:h-screen h-auto bg-center bg-cover flex justify-center content-center`}
       >
         <div
           className="tems-center justify-center text-center md:pt-60"

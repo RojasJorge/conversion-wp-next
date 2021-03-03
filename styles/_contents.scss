@@ -7,6 +7,10 @@ h6 {
   font-weight: 300;
 }
 
+p {
+  font-weight: 30;
+}
+
 .text-primary {
   color: $primary;
 }
@@ -27,6 +31,10 @@ h6 {
   background-color: $third;
 }
 
+.text-third {
+  color: $third;
+}
+
 .text-weight-ligth {
   font-weight: 300;
 }
@@ -37,4 +45,113 @@ h6 {
 
 .letter-spacing-3 {
   letter-spacing: 3px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.tab-apartments-active {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.apartment-title {
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 122px;
+    height: 3px;
+    background: $primary;
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+
+.bg-luxury-slider {
+  background-image: url('/luxury-slider-bg.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% + 200px) 2rem;
+  background-size: auto auto;
+  
+  @media (min-width: 1024) {
+    min-height: 895px;
+  }
+}
+
+.luxury-slider {
+
+  .swiper-container {
+    padding-bottom: 67px;
+  }
+
+  .swiper-button-prev {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 39px;
+    height: 39px;
+    cursor: pointer;
+    background: transparent url('/arrow.png') no-repeat left center;
+  }
+
+  .swiper-button-next {
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    width: 39px;
+    height: 39px;
+    background: transparent url('/arrow.png') no-repeat left center;
+    transform: scaleX(-1);
+    cursor: pointer;
+  }
+
+  .swiper-pagination.swiper-pagination-fraction {
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    padding-left: 55px;
+    line-height: 39px;
+    color: #E3DFDC;
+    z-index: -1;
+  }
+}
+
+.border-secondary {
+  border-color: $secondary;
+}
+
+.location {
+  background: transparent url('/monad-texture.png') repeat left top;
+
+  strong {
+    font-weight: bold;
+  }
+
+  p {
+    font-weight: 300;
+    margin: 15px 0;
+  }
+
+  h6 {
+    font-size: 15px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 122px;
+      height: 3px;
+      background: $primary;
+      margin: 1rem 0;
+    }
+  }
+
+  h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 0;
+    letter-spacing: 1;
+  }
 }
