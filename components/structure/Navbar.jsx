@@ -41,42 +41,44 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <ul
+      <div
         className={`${
           visible ? "block" : "hidden"
-        } bg-gray-600 w-full bg-opacity-70 text-secondary shadow-2 shadow-sm flex text-center`}
+        } bg-gray-600 w-full bg-opacity-70 text-secondary shadow-2 shadow-sm flex md:text-center`}
       >
-        <li
-          className="p-4 w-full heading-none cursor-pointer"
-          onClick={(_) => goTo("apartments")}
-        >
-          Apartamentos
-        </li>
-        <li
-          className="p-4 w-full heading-none cursor-pointer"
-          onClick={(_) => goTo("contact")}
-        >
-          Contacto
-        </li>
-        <li
-          className="p-4 w-full heading-none cursor-pointer"
-          onClick={(_) => goTo("amenities")}
-        >
-          Amenidades
-        </li>
-        <li
-          className="p-4 w-full heading-none cursor-pointer"
-          onClick={(_) => goTo("location")}
-        >
-          Ubicación
-        </li>
-        <li
-          className="p-4 w-full heading-none cursor-pointer"
-          onClick={(_) => goTo("finishes")}
-        >
-          Acabados
-        </li>
-      </ul>
+        <ul className="grid w-full grid-cols-2 md:grid-cols-none md:grid-flow-col">
+          <li
+            className="p-4 w-full heading-none cursor-pointer border-l border-b md:border-l-none border-secondary"
+            onClick={(_) => goTo("apartments")}
+          >
+            Apartamentos
+          </li>
+          <li
+            className="p-4 w-full heading-none cursor-pointer border-l border-b md:border-l-none border-secondary"
+            onClick={(_) => goTo("contact")}
+          >
+            Contacto
+          </li>
+          <li
+            className="p-4 w-full heading-none cursor-pointer border-l border-b md:border-l-none border-secondary"
+            onClick={(_) => goTo("amenities")}
+          >
+            Amenidades
+          </li>
+          <li
+            className="p-4 w-full heading-none cursor-pointer border-l border-b md:border-l-none border-secondary"
+            onClick={(_) => goTo("location")}
+          >
+            Ubicación
+          </li>
+          <li
+            className="p-4 w-full text-center heading-none w-screen md:w-auto cursor-pointer border-l border-b md:border-l-none border-secondary"
+            onClick={(_) => goTo("finishes")}
+          >
+            Acabados
+          </li>
+        </ul>
+      </div>
     </header>
   );
 };
