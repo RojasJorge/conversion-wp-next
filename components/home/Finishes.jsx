@@ -45,7 +45,7 @@ const Finishes = (_) => {
                         <img src={featured[0].media_details.sizes.landing_finishes.source_url} />
                       </div>
                       <h3 className="text-secondary my-4 text-uppercase text-base">
-                        Acabado 01
+                        {title}
                       </h3>
                     </div>
                   );
