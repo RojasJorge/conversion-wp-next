@@ -5,7 +5,7 @@ const Finishes = (_) => {
   const [finishes, setFinishes] = useState([]);
 
   const getFinishes = (_) => {
-    xhr("/posts?categories=5&_embed")
+    xhr("/posts?categories=5&order=asc&_embed")
       .then((json) => {
         setFinishes(json);
       })
@@ -50,24 +50,6 @@ const Finishes = (_) => {
                     </div>
                   );
                 })}
-              {/* <div>
-                <div className="bg-gray-700 h-52"></div>
-                <h3 className="text-secondary my-4 text-uppercase text-base">
-                  Acabado 01
-                </h3>
-              </div>
-              <div>
-                <div className="bg-gray-700 h-52"></div>
-                <h3 className="text-secondary my-4 text-uppercase text-base">
-                  Acabado 01
-                </h3>
-              </div>
-              <div>
-                <div className="bg-gray-700 h-52"></div>
-                <h3 className="text-secondary my-4 text-uppercase text-base">
-                  Acabado 01
-                </h3>
-              </div> */}
             </div>
           </div>
         </div>
