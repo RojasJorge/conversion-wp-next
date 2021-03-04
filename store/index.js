@@ -1,16 +1,42 @@
-import { createStore, action } from "easy-peasy";
+import { createStore, action, thunk, persist, computed } from "easy-peasy";
 
 export default createStore({
-  config: {
-    lid: 0 /** Landing ID */,
-    gtcode: null /** Google tag manager code */,
+  global: persist({
+    landing: null /** Landing object */,
 
     /**
      * Update state
      */
-    updateConfig: action((state, payload) => {
-      this.lid = payload.page_on_front
-      this.gtcode = payload.google_tag_manager_code
+    updateLanding: action((state, payload) => {
+      state.landing = payload
+    }),
+
+    /**
+     * Render markup from html string
+     */
+    createMarkup: computed(() => content => {
+      return {
+        __html: content
+      }
     })
-  }
+  }),
+  apartments: persist({
+    list: [],
+    current: 1,
+    updateApartments: action((state, payload) => {
+      state.list = payload
+    })
+  }),
+  amenities: persist({
+    list: [],
+    updateAmenities: action((state, payload) => {
+      state.list = payload
+    })
+  }),
+  finishes: persist({
+    list: [],
+    updateFinishes: action((state, payload) => {
+      state.list = payload
+    })
+  })
 })

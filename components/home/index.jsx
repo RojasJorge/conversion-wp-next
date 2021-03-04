@@ -8,18 +8,18 @@ import LuxurySlider from "../home/LuxurySlider";
 import Location from "../home/Location";
 import Finishes from "../home/Finishes";
 
-const HomePage = (data) => {
+const HomePage = () => {
   return (
     <>
-      <HomeHeader data={data} />
-      <HomeSlider data={data} />
-      <HeaderLegend data={data} />
-      <TextBanner data={data} />
+      <HomeHeader />
+      <HomeSlider />
+      <HeaderLegend />
+      <TextBanner />
       <Apartments />
-      <Contact data={data} />
-      <LuxurySlider data={data} />
-      <Location data={data} />
-      <Finishes data={data} />
+      <Contact />
+      <LuxurySlider />
+      <Location />
+      <Finishes />
     </>
   );
 };

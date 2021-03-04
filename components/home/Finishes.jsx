@@ -1,13 +1,18 @@
-import { useState, useEffect } from "react";
+import { useStoreActions, useStoreState } from "easy-peasy";
+import { useEffect } from "react";
 import xhr from "../../xhr";
 
 const Finishes = (_) => {
-  const [finishes, setFinishes] = useState([]);
+  const finishes = useStoreState((state) => state.finishes.list);
+  
+  const updateFinishes = useStoreActions(
+    (actions) => actions.finishes.updateFinishes
+  );
 
   const getFinishes = (_) => {
     xhr("/posts?categories=5&order=asc&_embed")
       .then((json) => {
-        setFinishes(json);
+        updateFinishes(json);
       })
       .catch((err) => console.log(err));
   };
@@ -17,7 +22,10 @@ const Finishes = (_) => {
   }, []);
 
   return (
-    <div className="finishes bg-primary bg-fixed py-24 px-4 md:py-24" id="finishes">
+    <div
+      className="finishes bg-primary bg-fixed py-24 px-4 md:py-24"
+      id="finishes"
+    >
       <div className="flex md:py-24 h-auto items-center">
         <div className="container mx-auto">
           <div className="w-full text-center p-4">
@@ -42,7 +50,13 @@ const Finishes = (_) => {
                   return (
                     <div key={id}>
                       <div className="min-h-52">
-                        <img className="w-full" src={featured[0]?.media_details?.sizes?.landing_finishes?.source_url} />
+                        <img
+                          className="w-full"
+                          src={
+                            featured[0]?.media_details?.sizes?.landing_finishes
+                              ?.source_url
+                          }
+                        />
                       </div>
                       <h3 className="text-secondary my-4 text-uppercase text-base">
                         {title.rendered}

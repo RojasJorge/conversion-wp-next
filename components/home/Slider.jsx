@@ -1,3 +1,4 @@
+import { useStoreState } from "easy-peasy";
 import { useState, useEffect } from "react";
 import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -5,16 +6,20 @@ import xhr from "../../xhr";
 
 SwiperCore.use([Autoplay]);
 
-const HomeSlider = ({ data }) => {
+const HomeSlider = () => {
+  const landing = useStoreState((state) => state.global.landing);
+
   const [slides, setSlider] = useState([]);
 
   useEffect(() => {
-    xhr(
-      `/media?parent=${data?.data?.config?.page_on_front}&exclude=${data?.data?.landing?.featured_media}`
-    )
-      .then((json) => setSlider(json))
-      .catch((err) => console.log(err));
-  }, []);
+    if (landing && landing?.custom_fields?.page_on_front) {
+      xhr(
+        `/media?parent=${landing.custom_fields.page_on_front}&exclude=${landing.frontpage.featured_media}`
+      )
+        .then((json) => setSlider(json))
+        .catch((err) => console.log(err));
+    }
+  }, [landing]);
 
   return (
     <>
@@ -46,7 +51,10 @@ const HomeSlider = ({ data }) => {
       >
         {slides?.map((slide, key) => (
           <SwiperSlide key={key}>
-            <a data-fancybox="gallerySlider" href={slide?.media_details?.sizes?.large.source_url}>
+            <a
+              data-fancybox="gallerySlider"
+              href={slide?.media_details?.sizes?.large.source_url}
+            >
               <img
                 className="home-slide-image"
                 src={slide?.media_details?.sizes?.langing_slider.source_url}

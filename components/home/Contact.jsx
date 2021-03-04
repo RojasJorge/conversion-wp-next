@@ -1,4 +1,9 @@
-const Contact = ({ data }) => {
+import { useStoreState } from "easy-peasy";
+
+const Contact = () => {
+
+  const landing = useStoreState(state => state.global.landing);
+
   const onSubmit = (fields) => {
     console.log("fields:", fields);
   };
@@ -9,7 +14,7 @@ const Contact = ({ data }) => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src={data?.data?.config?.contact_image}
+              src={landing?.custom_fields?.contact_image}
               className="object-none"
             />
           </div>

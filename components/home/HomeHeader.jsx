@@ -1,33 +1,32 @@
-import { useState, useEffect } from "react";
-import xhr from "../../xhr";
+import { useStoreState } from "easy-peasy";
+import CreateMarkup from "../misc/CreateMarkup";
 
-const HomeHeader = ({ headerTitle, data }) => {
-  const [featured, setFeatured] = useState();
+const HomeHeader = () => {
+  const landing = useStoreState((state) => state.global.landing);
 
-  const createMarkup = (content) => {
-    return { __html: content };
+  const featured = () => {
+    const thumbUrl = landing?.frontpage?._embedded["wp:featuredmedia"];
+    if (
+      thumbUrl &&
+      thumbUrl[0] &&
+      thumbUrl[0]?.media_details?.sizes?.landing_header
+    ) {
+      return `url(${thumbUrl[0]?.media_details?.sizes?.landing_header?.source_url})`;
+    }
+    return "none";
   };
-
-  useEffect(() => {
-    xhr(`/media/${data.data.landing.featured_media}`).then((json) => {
-      setFeatured(json);
-    });
-  }, []);
 
   return (
     <>
       <div
-        style={{
-          backgroundImage: `url(${featured?.media_details?.sizes?.landing_header?.source_url})`,
-        }}
+        style={{ backgroundImage: featured() }}
         className={`bg-black py-24 md:h-screen h-auto bg-top md:bg-center bg-no-repeat bg-fixed md:bg-cover flex justify-center content-center`}
       >
-        <div
-          className="tems-center justify-center text-center md:pt-60"
-          dangerouslySetInnerHTML={createMarkup(
-            data?.data?.config?.header_text
+        <div className="tems-center justify-center text-center md:pt-60">
+          {landing?.custom_fields?.header_text.length > 0 && (
+            <CreateMarkup content={landing?.custom_fields?.header_text} />
           )}
-        />
+        </div>
       </div>
     </>
   );

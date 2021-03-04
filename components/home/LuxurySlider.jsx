@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useStoreActions, useStoreState } from "easy-peasy";
+import { useEffect } from "react";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import xhr from "../../xhr";
@@ -6,28 +7,27 @@ import xhr from "../../xhr";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const LuxurySlider = (_) => {
-  const [slides, setSlider] = useState([]);
+  const slides = useStoreState((state) => state.amenities.list);
+
+  const updateAmenities = useStoreActions(
+    (actions) => actions.amenities.updateAmenities
+  );
 
   useEffect(() => {
     xhr(`/posts?_embed&categories=4&order=asc`)
       .then((json) => {
         if (json && json.length > 0) {
-          setSlider(json);
+          updateAmenities(json);
         }
       })
       .catch((err) => console.log(err));
   }, []);
 
-  const getFeaturedMedia = async (item) => {
-    await xhr(`/media/${item.featured_media}`)
-      .then((thumbnail) => {})
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   return (
-    <div id="amenities" className="flex bg-black md:py-24 bg-luxury-slider luxury-slider h-auto items-center">
+    <div
+      id="amenities"
+      className="flex bg-black md:py-24 bg-luxury-slider luxury-slider h-auto items-center"
+    >
       <div className="container mx-auto">
         <div className="w-full text-center p-4">
           <p className="text-secondary text-white text-xs text-uppercase p-4">

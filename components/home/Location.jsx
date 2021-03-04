@@ -1,22 +1,20 @@
-const Location = ({ data }) => {
-  const createMarkup = (content) => {
-    return { __html: content };
-  };
+import { useStoreState } from "easy-peasy";
+import CreateMarkup from "../misc/CreateMarkup";
+
+const Location = () => {
+  const landing = useStoreState((state) => state.global.landing);
 
   return (
     <div id="location" className="location bg-fixed bg-repeat py-24 px-4">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <div
-              className="tems-center"
-              dangerouslySetInnerHTML={createMarkup(
-                data?.data?.config?.landing_location
-              )}
-            />
+            <div className="tems-center">
+              <CreateMarkup content={landing?.custom_fields?.landing_location} />
+            </div>
           </div>
           <div>
-            <img src={data?.data?.config?.landing_location_image} />
+            <img src={landing?.custom_fields?.landing_location_image} />
           </div>
         </div>
       </div>

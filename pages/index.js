@@ -1,28 +1,41 @@
-import Web from '../layout/Web'
-import HomePage from '../components/home'
-import xhr, { config } from '../xhr'
+import { useEffect } from "react";
+import Web from "../layout/Web";
+import HomePage from "../components/home";
+import xhr, { config } from "../xhr";
+import { useStoreActions } from "easy-peasy";
 
-const Home = data =>
-  <Web title="Portada" data={data}>
-    <HomePage data={data} />
-  </Web>
+const Home = (data) => {
+  const updateLanding = useStoreActions(
+    (actions) => actions.global.updateLanding
+  );
+
+  useEffect(() => {
+    updateLanding(data);
+  }, []);
+
+  return (
+    <Web title="Portada">
+      <HomePage />
+    </Web>
+  );
+};
 
 Home.getInitialProps = async () => {
-  let response = {}
+  let response = {};
 
   await config("/")
     .then(async (json) => {
-      response.config = json
+      response.custom_fields = json;
 
-      await xhr(`/pages/${json.page_on_front}`)
+      await xhr(`/pages/${json.page_on_front}?_embed`)
         .then((resp) => {
-          response.landing = resp
+          response.frontpage = resp;
         })
-        .catch((err) => console.log(err))
+        .catch((err) => console.log(err));
     })
     .catch();
 
-  return response
-}
+  return response;
+};
 
-export default Home
+export default Home;

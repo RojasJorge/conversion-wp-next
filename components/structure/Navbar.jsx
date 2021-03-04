@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const Navbar = () => {
+
   const [visible, toggleMenu] = useState(false);
 
   const goTo = (path) => {
