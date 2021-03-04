@@ -4,7 +4,7 @@ import xhr from "../../xhr";
 
 const Finishes = (_) => {
   const finishes = useStoreState((state) => state.finishes.list);
-  
+
   const updateFinishes = useStoreActions(
     (actions) => actions.finishes.updateFinishes
   );

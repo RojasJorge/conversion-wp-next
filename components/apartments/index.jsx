@@ -74,7 +74,6 @@ const Apartments = (_) => {
 
   return (
     <div className="container mx-auto md:h-screen">
-      {/* <pre>{JSON.stringify(apartments, false, 2)}</pre> */}
       <div className="flex-1">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div

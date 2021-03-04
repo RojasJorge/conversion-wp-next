@@ -25,6 +25,9 @@ export default createStore({
     current: 1,
     updateApartments: action((state, payload) => {
       state.list = payload
+    }),
+    updateCurrent: action((state, payload) => {
+      state.current = payload
     })
   }),
   amenities: persist({
